@@ -1,20 +1,22 @@
-import React from "react"
-import { Link } from "gatsby"
+import * as React from "react"
+import { FormattedMessage } from "gatsby-plugin-intl"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+
+const MainTitle = styled.h1`
+  margin-top: 10px;
+  font-size: 30px;
+  text-align: center;
+`
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <MainTitle>
+      <FormattedMessage id="index.h1" values={{ br: <br /> }} />
+    </MainTitle>
   </Layout>
 )
 

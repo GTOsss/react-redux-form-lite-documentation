@@ -1,0 +1,9 @@
+{
+  "global": {
+    "navItemApi": "Документация",
+    "navItemExamples": "Примеры"
+  },
+  "index": {
+    "h1": "React Redux Form Lite. {br} Легковесная и не менее функциональная альтернатива Redux Form."
+  }
+}
