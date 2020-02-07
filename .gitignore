@@ -1,6 +1,6 @@
 # IDE
 .idea
-
+/.idea/codeStyles/codeStyleConfig.xml
 # Logs
 logs
 *.log

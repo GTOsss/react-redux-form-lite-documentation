@@ -1,7 +1,8 @@
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import Header from "./header"
+import Header from './header';
+import NavPanel, { TElement as NavElement } from './nav-panel';
 import './layout.css';
 
 const Wrap = styled.div`
@@ -11,6 +12,7 @@ const Wrap = styled.div`
 `;
 
 const Body = styled.div`
+  display: flex;
   flex-grow: 1;
 `;
 
@@ -24,7 +26,45 @@ const Footer = styled.footer`
   background-color: #20232A;
 `;
 
-const Layout = ({ children }) => {
+const Main = styled.main`
+  flex-grow: 1;
+  padding: 10px 30px;
+`;
+
+type NavElementsKey = 'examples' | 'api';
+
+type NavElementsMap = {
+  [key in NavElementsKey]: Array<NavElement>;
+};
+
+const navElementsMap: NavElementsMap = {
+  examples: [
+    {
+      id: 0,
+      label: 'Simple form',
+    },
+    {
+      id: 1,
+      label: 'Simple form with async validation',
+    },
+  ],
+  api: [
+    {
+      id: 0,
+      label: 'reduxForm',
+    },
+  ],
+};
+
+interface IProps {
+  children: React.ReactNode;
+  navPanelKey?: NavElementsKey,
+}
+
+const Layout = ({
+  children,
+  navPanelKey,
+}: IProps) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -33,19 +73,20 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <Wrap>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Body>
-        <main>{children}</main>
+        <Main>{children}</Main>
+        {navPanelKey && <NavPanel elements={navElementsMap[navPanelKey]} />}
       </Body>
       <Footer>
         © {new Date().getFullYear()}
       </Footer>
     </Wrap>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

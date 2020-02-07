@@ -1,17 +1,16 @@
-import { Link, FormattedMessage } from "gatsby-plugin-intl"
-import * as React from "react"
-import styled from "styled-components"
+import { Link, FormattedMessage } from 'gatsby-plugin-intl';
+import * as React from 'react';
+import styled from 'styled-components';
 
 const HeaderWrap = styled.header`
   background-color: #20232A;
   height: 50px;
   min-height: 50px;
   display: flex;
-  font-family: sans-serif;
   padding: 0 20px;
   position: sticky;
   top: 0;
-`
+`;
 
 const Logo = styled(Link)`
   color: #61DAFB;
@@ -21,11 +20,10 @@ const Logo = styled(Link)`
   align-items: center;
   padding-right: 20px;
   font-weight: bold;
-`
+`;
 
 const NavItem = styled(Link)`
   color: white;
-  font-family: sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,6 +59,6 @@ const Header = ({ siteTitle }: IProps) => (
       </NavItem>
     </LeftGroup>
   </HeaderWrap>
-)
+);
 
-export default Header
+export default Header;
