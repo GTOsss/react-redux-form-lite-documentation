@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
-import Header from './header';
-import NavPanel, { TElement as NavElement } from './nav-panel';
-import './layout.css';
+import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import Header from "./header"
+import NavPanel, { TElement as NavElement } from "./nav-panel"
+import "./layout.css"
 
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-`;
+`
 
 const Body = styled.div`
   display: flex;
   flex-grow: 1;
-`;
+`
 
 const Footer = styled.footer`
   display: flex;
@@ -24,14 +24,14 @@ const Footer = styled.footer`
   min-height: 40px;
   color: white;
   background-color: #20232A;
-`;
+`
 
 const Main = styled.main`
   flex-grow: 1;
   padding: 10px 30px;
-`;
+`
 
-type NavElementsKey = 'examples' | 'api';
+type NavElementsKey = "examples" | "api";
 
 type NavElementsMap = {
   [key in NavElementsKey]: Array<NavElement>;
@@ -41,20 +41,23 @@ const navElementsMap: NavElementsMap = {
   examples: [
     {
       id: 0,
-      label: 'Simple form',
+      label: "Simple form",
+      link: "/examples/simple-form",
     },
     {
       id: 1,
-      label: 'Simple form with async validation',
+      label: "Simple form with async validation",
+      link: "/examples/simple-form-with-async-validation",
     },
   ],
   api: [
     {
       id: 0,
-      label: 'reduxForm',
+      label: "reduxForm",
+      link: "",
     },
   ],
-};
+}
 
 interface IProps {
   children: React.ReactNode;
@@ -73,7 +76,7 @@ const Layout = ({
         }
       }
     }
-  `);
+  `)
 
   return (
     <Wrap>
@@ -86,7 +89,7 @@ const Layout = ({
         © {new Date().getFullYear()}
       </Footer>
     </Wrap>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

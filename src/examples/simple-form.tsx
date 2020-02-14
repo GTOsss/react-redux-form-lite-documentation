@@ -1,19 +1,13 @@
-import * as React from "react"
-import styled from "styled-components"
-import { reduxForm, Field, IReduxFormSubmitEvent, IReduxFormState } from "react-redux-form-lite"
-import { useSelector } from "react-redux"
-import Layout from "../../components/layout"
-import BodyExample from "../../components/body-example"
-import JsonExample from "../../components/json-example"
-import Form from "../../components/form"
-import SimpleExample from '../../examples/simple-form';
+import * as React from 'react';
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { androidstudio } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
-const LeftWrap = styled.div`
-  width: 100%;
-`
+const simpleFormText = `
+import { reduxForm, Field } from "react-redux-form-lite"
+
 
 const ExampleComponent = ({ handleSubmit }) => {
-  const onSubmit = ({ values }: IReduxFormSubmitEvent<any>) => {
+  const onSubmit = ({ values }) => {
     alert(JSON.stringify(values, null, "  "))
   }
 
@@ -74,30 +68,23 @@ const ExampleComponent = ({ handleSubmit }) => {
   )
 }
 
-const Example = reduxForm({
+export default reduxForm({
   form: "simpleForm",
-})(ExampleComponent)
+})(SimpleForm)
+
+`
 
 interface IProps {
 }
 
-const SimpleForm = ({}: IProps) => {
-
-  // @ts-ignore
-  const formState = useSelector(state => state.reduxForm.simpleForm as IReduxFormState<any>)
+const SimpleExample = React.memo(({}: IProps) => {
 
   return (
-    <Layout navPanelKey="examples">
-      <BodyExample>
-        <LeftWrap>
-          <h1>Simple form</h1>
-          <Example />
-        </LeftWrap>
-        <JsonExample formName="simpleForm" formState={formState} />
-      </BodyExample>
-      <SimpleExample />
-    </Layout>
-  )
-}
+    <SyntaxHighlighter lenguage="javascript" style={androidstudio}>
+      {simpleFormText}
+    </SyntaxHighlighter>
+  );
+});
 
-export default SimpleForm
+export default SimpleExample;
+

@@ -17,15 +17,21 @@ const Title = styled.h2`
   margin: 0;
 `;
 
-const ObjectElement = styled.div`
+interface IObjectElement {
+  maxHeight?: string;
+}
+
+const ObjectElement = styled.div<IObjectElement>`
   padding: 4px;
   background-color: #eaeaea;
   margin-bottom: 15px;
   width: 100%;
   white-space: pre-wrap;
   word-wrap: break-word;
-  overflow-x: hidden;
+  overflow: hidden;
   max-width: 500px;
+  overflow-y: auto;
+  max-height: ${({ maxHeight }) => maxHeight ? `${maxHeight}` : 'auto'};
 `;
 
 interface IProps {
@@ -38,6 +44,10 @@ const JsonExample = React.memo(({
   formName,
 }: IProps) => {
 
+  if (!formState) {
+    return null;
+  }
+
   return (
     <Wrap>
       <Title>Values (state.reduxForm.{formName}.values):</Title>
@@ -49,7 +59,7 @@ const JsonExample = React.memo(({
         {JSON.stringify(formState.form, null, '  ')}
       </ObjectElement>
       <Title>Meta (state.reduxForm.{formName}.meta):</Title>
-      <ObjectElement>
+      <ObjectElement maxHeight="300px" >
         {JSON.stringify(formState.meta, null, '  ')}
       </ObjectElement>
     </Wrap>

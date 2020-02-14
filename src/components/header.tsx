@@ -54,7 +54,7 @@ const Header = ({ siteTitle }: IProps) => (
       <NavItem to="/api">
         <FormattedMessage id="global.navItemApi" />
       </NavItem>
-      <NavItem to="/examples">
+      <NavItem to="/examples/simple-form">
         <FormattedMessage id="global.navItemExamples" />
       </NavItem>
     </LeftGroup>

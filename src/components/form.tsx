@@ -5,6 +5,11 @@ interface IProps {
 }
 
 const Form = styled.form<IProps>`
+  border: 1px solid #c1c1c1;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 4px;
+
   div {
     display: flex;
     margin: 6px 0;
