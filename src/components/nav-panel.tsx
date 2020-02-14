@@ -36,7 +36,7 @@ const Element = styled.li`
     border-left: 4px solid transparent;  
     color: black;
     text-decoration: none;
-    padding-left: 6px;
+    padding-left: 12px;
     display: block;
     height: 100%;
     
@@ -53,7 +53,7 @@ const Element = styled.li`
 
 export type TElement = {
   id: number | string;
-  label: string;
+  label: React.ReactNode;
   link: string;
 }
 

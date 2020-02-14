@@ -5,5 +5,14 @@
   },
   "index": {
     "h1": "React Redux Form Lite. {br} Легковесная и не менее функциональная альтернатива Redux Form."
+  },
+  "innerNavbar": {
+    "api": {
+
+    },
+    "examples": {
+      "simpleForm": "Простая форма",
+      "syncValidation": "Синхронная валидация формы"
+    }
   }
 }

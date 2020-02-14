@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Header from "./header"
 import NavPanel, { TElement as NavElement } from "./nav-panel"
+import { FormattedMessage } from "gatsby-plugin-intl"
 import "./layout.css"
 
 const Wrap = styled.div`
@@ -41,12 +42,12 @@ const navElementsMap: NavElementsMap = {
   examples: [
     {
       id: 0,
-      label: "Simple form",
+      label: <FormattedMessage id="innerNavbar.examples.simpleForm" />,
       link: "/examples/simple-form",
     },
     {
       id: 1,
-      label: "Simple form with async validation",
+      label: <FormattedMessage id="innerNavbar.examples.syncValidation" />,
       link: "/examples/simple-form-with-async-validation",
     },
   ],
