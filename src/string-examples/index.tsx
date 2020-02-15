@@ -1,32 +1,27 @@
-import * as React from 'react';
+import * as React from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { androidstudio } from "react-syntax-highlighter/dist/esm/styles/hljs"
-import simpleForm from './simple-form';
+import simpleForm from "./simple-form"
+import syncValidation from "./sync-validation"
 
 const mapExamples = {
   simpleForm,
+  syncValidation,
 }
 
-type ExampleKey = keyof typeof mapExamples;
+export type ExampleKey = keyof typeof mapExamples;
 
 interface IProps {
   exampleKey: ExampleKey;
 }
 
-const SimpleExample = React.memo(({}: IProps) => {
+export const SimpleExample = React.memo(({ exampleKey }: IProps) => {
 
   return (
     <SyntaxHighlighter lenguage="javascript" style={androidstudio}>
-      {mapExamples}
+      {mapExamples[exampleKey]}
     </SyntaxHighlighter>
-  );
-});
+  )
+})
 
-export default SimpleExample;
-
-const objectMap = {
-  field1: '',
-  field2: '',
-};
-
-type keysOfObjectMap = 'field1' | 'field2';
+export default SimpleExample

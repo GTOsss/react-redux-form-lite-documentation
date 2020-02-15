@@ -48,7 +48,7 @@ const navElementsMap: NavElementsMap = {
     {
       id: 1,
       label: <FormattedMessage id="innerNavbar.examples.syncValidation" />,
-      link: "/examples/simple-form-with-async-validation",
+      link: "/examples/sync-validation",
     },
   ],
   api: [

@@ -14,5 +14,11 @@
       "simpleForm": "Простая форма",
       "syncValidation": "Синхронная валидация формы"
     }
+  },
+  "examples": {
+    "titles": {
+      "simpleForm": "Простая форма",
+      "syncValidation": "Синхронная валидация формы"
+    }
   }
 }

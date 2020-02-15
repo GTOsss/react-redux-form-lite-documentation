@@ -1,5 +1,5 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import * as React from "react"
+import styled from "styled-components"
 
 interface IProps {
 }
@@ -57,6 +57,36 @@ const Form = styled.form<IProps>`
     width: 100%;
     resize: vertical;
   }
-`;
+  
+  .custom-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-error,
+  .message-warning {
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    margin-bottom: 0;
+    padding-left: 7px;
+  }
+  
+  .message-error {
+    color: #9f0000;
+  }
+  
+  .message-warning {
+    color: #7a7a00;  
+  }
+  
+  .input-error {
+    border: solid 1px red;
+  }
+  
+  .input-warning {
+    border: solid 1px #9f9f00;
+  }
+`
 
-export default Form;
+export default Form

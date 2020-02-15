@@ -1,16 +1,8 @@
 import * as React from "react"
-import styled from "styled-components"
 import { reduxForm, Field, IReduxFormSubmitEvent, IReduxFormState } from "react-redux-form-lite"
-import { useSelector } from "react-redux"
-import Layout from "../../components/layout"
-import BodyExample from "../../components/body-example"
-import JsonExample from "../../components/json-example"
+import { FormattedMessage } from 'gatsby-plugin-intl';
 import Form from "../../components/form"
-import SimpleExample from '../../examples/simple-form';
-
-const LeftWrap = styled.div`
-  width: 100%;
-`
+import TemplateExamplePage from "../../string-examples/template-example-page"
 
 const ExampleComponent = ({ handleSubmit }) => {
   const onSubmit = ({ values }: IReduxFormSubmitEvent<any>) => {
@@ -81,23 +73,17 @@ const Example = reduxForm({
 interface IProps {
 }
 
-const SimpleForm = ({}: IProps) => {
-
-  // @ts-ignore
-  const formState = useSelector(state => state.reduxForm.simpleForm as IReduxFormState<any>)
+const SimpleForm = React.memo(({}: IProps) => {
 
   return (
-    <Layout navPanelKey="examples">
-      <BodyExample>
-        <LeftWrap>
-          <h1>Simple form</h1>
-          <Example />
-        </LeftWrap>
-        <JsonExample formName="simpleForm" formState={formState} />
-      </BodyExample>
-      <SimpleExample />
-    </Layout>
-  )
-}
+    <TemplateExamplePage
+      title={<FormattedMessage id="examples.titles.simpleForm" />}
+      formName="simpleForm"
+    >
+      <Example />
+    </TemplateExamplePage>
+  );
+});
 
-export default SimpleForm
+export default SimpleForm;
+
