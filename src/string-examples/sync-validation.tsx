@@ -7,7 +7,7 @@ const validationMinLength = (minLength) => (value) =>
   value && (value.length < minLength) ? \`The minimum length of the value must be \${minLength}.\` : undefined;
 
 const validate = (values) => {
-  const errors: MapMessages<any> = {};
+  const errors = {};
 
   errors.firstName = validationIsRequired(values.firstName);
   errors.lastName = validationIsRequired(values.lastName);
@@ -16,7 +16,7 @@ const validate = (values) => {
 };
 
 const warn = (values) => {
-  const warnings: MapMessages<any> = {};
+  const warnings = {};
 
   warnings.firstName = validationMinLength(2)(values.firstName);
   warnings.lastName = validationMinLength(2)(values.lastName);
@@ -24,26 +24,52 @@ const warn = (values) => {
   return warnings;
 };
 
-const SyncValidation = (props) => {
-  const {handleSubmit} = props;
+const CustomField = ({
+  meta,
+  input,
+  placeholder,
+}) => {
+  const showMessage = Boolean(meta.error || meta.warning);
+
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="custom-field">
+      <input
+        {...input}
+        className={cn({"input-error": meta.error, "input-warning": meta.warning}) }
+        placeholder={placeholder}
+      />
+      {showMessage && (
+        <div className={cn({"message-error": meta.error, "message-warning": meta.warning})}>
+          {meta.error || meta.warning}
+        </div>
+      )}
+    </div>
+  )
+}
+
+const SyncValidation = (props) => {
+  const { handleSubmit } = props;
+
+  const onSubmit = ({ values, state }) => {
+    if (!state.form.hasErrors && !state.form.hasWarnings) {
+      alert(JSON.stringify(values, null, "  "));
+    }
+  }
+
+  return (
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>First Name</label>
-        <div>
-          <Field name="firstName" component="input" type="text" placeholder="First Name" />
-        </div>
+        <Field name="firstName" component={CustomField} type="text" placeholder="First Name" />
       </div>
       <div>
         <label>Last Name</label>
-        <div>
-          <Field name="lastName" component="input" type="text" placeholder="Last Name" />
-        </div>
+        <Field name="lastName" component={CustomField} type="text" placeholder="Last Name" />
       </div>
       <div>
         <button type="submit">Submit</button>
       </div>
-    </form>
+    </Form>
   );
 };
 
@@ -52,6 +78,5 @@ export default reduxForm({
   validate,
   warn,
 })(SyncValidation);
-
 
 `

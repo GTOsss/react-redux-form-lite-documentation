@@ -1,6 +1,6 @@
 import * as React from "react"
-import SyntaxHighlighter from "react-syntax-highlighter"
-import { androidstudio } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import simpleForm from "./simple-form"
 import syncValidation from "./sync-validation"
 
@@ -18,7 +18,7 @@ interface IProps {
 export const SimpleExample = React.memo(({ exampleKey }: IProps) => {
 
   return (
-    <SyntaxHighlighter lenguage="javascript" style={androidstudio}>
+    <SyntaxHighlighter wrapLines language="jsx" style={darcula}>
       {mapExamples[exampleKey]}
     </SyntaxHighlighter>
   )

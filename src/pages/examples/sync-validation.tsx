@@ -1,5 +1,5 @@
 import * as React from "react"
-import { MapMessages, Field, reduxForm, IFieldMeta } from "react-redux-form-lite"
+import { MapMessages, Field, reduxForm, IFieldMeta, IReduxFormSubmitEvent } from "react-redux-form-lite"
 import styled from "styled-components"
 import { FormattedMessage } from "gatsby-plugin-intl"
 import cn from "classnames"
@@ -59,8 +59,15 @@ const CustomField = ({
 
 const ExampleComponent = (props) => {
   const { handleSubmit } = props
+
+  const onSubmit = ({ values, state }) => {
+    if (!state.form.hasErrors && !state.form.hasWarnings) {
+      alert(JSON.stringify(values, null, "  "))
+    }
+  }
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>First Name</label>
         <Field name="firstName" component={CustomField} type="text" placeholder="First Name" />
