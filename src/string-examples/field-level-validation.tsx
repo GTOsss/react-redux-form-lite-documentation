@@ -1,34 +1,23 @@
 export default `
 import React from 'react';
 import { Field, reduxForm } from 'react-redux-form-lite';
+import cn from "classnames"
 
-const validationIsRequired = (value) => !value ? 'Field required.' : undefined;
-const validationMinLength = (minLength) => (value) =>
-  value && (value.length < minLength) ? \`The minimum length of the value must be \${minLength}.\` : undefined;
+const validateIsRequired = (value) => !value ? "Field required." : undefined
+const validateMinLength = (minLength) => (value) =>
+  value.length < minLength ? \`Must be \${minLength} characters or more.\` : undefined
 
-const validate = (values) => {
-  const errors = {};
+const warnTooYang = (value) => Number.parseInt(value, 10) < 18 ? "Too yang." : undefined
+const warnTooSmall = (value) => Number.parseInt(value, 10) < 1 ? "Too small." : undefined
+const warnTooLarge = (value) => Number.parseInt(value, 10) > 100 ? "Too large." : undefined
 
-  errors.firstName = validationIsRequired(values.firstName);
-  errors.lastName = validationIsRequired(values.lastName);
-
-  return errors;
-};
-
-const warn = (values) => {
-  const warnings = {};
-
-  warnings.firstName = validationMinLength(2)(values.firstName);
-  warnings.lastName = validationMinLength(2)(values.lastName);
-
-  return warnings;
-};
 
 const CustomField = ({
   meta,
   input,
   placeholder,
   label,
+  type,
 }) => {
   const showMessage = Boolean(meta.error || meta.warning)
 
@@ -40,6 +29,7 @@ const CustomField = ({
           {...input}
           className={cn({ "input-error": meta.error, "input-warning": meta.warning })}
           placeholder={placeholder}
+          type={type}
         />
         {showMessage && (
           <div className={cn({ "message-error": meta.error, "message-warning": meta.warning })}>
@@ -51,7 +41,7 @@ const CustomField = ({
   )
 }
 
-const SyncValidation = (props) => {
+const ExampleComponent = (props) => {
   const { handleSubmit } = props
 
   const onSubmit = ({ values, state }) => {
@@ -63,30 +53,47 @@ const SyncValidation = (props) => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Field
+        label="First Name"
+        validate={validateIsRequired}
         name="firstName"
         component={CustomField}
         type="text"
         placeholder="First Name"
-        label="First Name"
       />
       <Field
+        label="Last Name"
+        validate={[validateIsRequired, validateMinLength(2)]}
         name="lastName"
         component={CustomField}
         type="text"
         placeholder="Last Name"
-        label="Last Name"
+      />
+      <Field
+        label="Age"
+        validate={validateIsRequired}
+        warn={warnTooYang}
+        name="age"
+        component={CustomField}
+        type="text"
+        placeholder="Age"
+      />
+      <Field
+        label="Number from br 0 to 100"
+        warn={[warnTooSmall, warnTooLarge]}
+        name="number"
+        component={CustomField}
+        type="number"
+        placeholder="Number from 0 to 100"
       />
       <div>
         <button type="submit">Submit</button>
       </div>
     </Form>
   )
-};
+}
 
-export default reduxForm({
-  form: 'example',
-  validate,
-  warn,
-})(SyncValidation);
+const Example = reduxForm({
+  form: "fieldLevelValidation",
+})(ExampleComponent)
 
-`
+`;

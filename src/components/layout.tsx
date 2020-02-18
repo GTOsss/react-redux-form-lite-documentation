@@ -50,6 +50,31 @@ const navElementsMap: NavElementsMap = {
       label: <FormattedMessage id="innerNavbar.examples.syncValidation" />,
       link: "/examples/sync-validation",
     },
+    {
+      id: 2,
+      label: <FormattedMessage id="innerNavbar.examples.fieldLevelValidation" />,
+      link: "/examples/field-level-validation",
+    },
+    {
+      id: 3,
+      label: <FormattedMessage id="innerNavbar.examples.initialValues" />,
+      link: "/examples/initial-values",
+    },
+    {
+      id: 4,
+      label: <FormattedMessage id="innerNavbar.examples.initializeFromState" />,
+      link: "/examples/initialize-from-state",
+    },
+    {
+      id: 5,
+      label: <FormattedMessage id="innerNavbar.examples.fieldArray" />,
+      link: "/examples/field-array",
+    },
+    {
+      id: 6,
+      label: <FormattedMessage id="innerNavbar.examples.wizardForm" />,
+      link: "/examples/wizard-form",
+    },
   ],
   api: [
     {
@@ -84,7 +109,7 @@ const Layout = ({
       <Header siteTitle={data.site.siteMetadata.title} />
       <Body>
         <Main>{children}</Main>
-        {navPanelKey && <NavPanel elements={navElementsMap[navPanelKey]} />}
+        {navPanelKey ? <NavPanel elements={navElementsMap[navPanelKey]} /> : null}
       </Body>
       <Footer>
         © {new Date().getFullYear()}

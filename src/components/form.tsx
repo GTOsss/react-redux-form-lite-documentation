@@ -58,7 +58,7 @@ const Form = styled.form<IProps>`
     resize: vertical;
   }
   
-  .custom-field {
+  .direction-column {
     display: flex;
     flex-direction: column;
   }

@@ -12,13 +12,23 @@
     },
     "examples": {
       "simpleForm": "Простая форма",
-      "syncValidation": "Синхронная валидация формы"
+      "syncValidation": "Синхронная валидация формы",
+      "fieldLevelValidation": "Валидация на уровне инпутов",
+      "initialValues": "Начальное состояние формы",
+      "initializeFromState": "Установка начального состояния формы",
+      "fieldArray": "Массив инпутов",
+      "wizardForm": "Многостраничная форма"
     }
   },
   "examples": {
     "titles": {
       "simpleForm": "Простая форма",
-      "syncValidation": "Синхронная валидация формы"
+      "syncValidation": "Синхронная валидация формы",
+      "fieldLevelValidation": "Валидация на уровне инпутов",
+      "initialValues": "Начальное состояние формы",
+      "initializeFromState": "Установка начального состояния формы",
+      "fieldArray": "Массив инпутов",
+      "wizardForm": "Многостраничная форма"
     }
   }
 }
