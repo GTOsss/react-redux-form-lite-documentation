@@ -67,6 +67,6 @@ const ExampleComponent = ({ handleSubmit }) => {
 
 export default reduxForm({
   form: "simpleForm",
-})(SimpleForm)
+})(ExampleComponent)
 
 `

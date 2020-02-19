@@ -92,7 +92,7 @@ const ExampleComponent = (props) => {
   )
 }
 
-const Example = reduxForm({
+export default reduxForm({
   form: "fieldLevelValidation",
 })(ExampleComponent)
 

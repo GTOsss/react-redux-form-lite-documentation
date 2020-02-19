@@ -1,11 +1,19 @@
-export default `
-import React from 'react';
-import { reduxForm, Field } from "react-redux-form-lite"
+import * as React from "react"
+import TemplateExamplePage from "../../string-examples/template-example-page"
+import Form from "../../components/form"
+import { FormattedMessage } from "gatsby-plugin-intl"
+import { reduxForm, Field, IReduxFormSubmitEvent } from "react-redux-form-lite"
+
+const defaultUser = {
+  firstName: "Timofey",
+  lastName: "Goncharov",
+  email: "test@mail.ru",
+}
 
 const ExampleComponent = (props) => {
-  const { handleSubmit, formActions: { resetForm } } = props
-  
-  const onSubmit = ({ values }) => {
+  const { handleSubmit, formActions: { resetForm, setInitialValues } } = props
+
+  const onSubmit = ({ values }: IReduxFormSubmitEvent<any>) => {
     alert(JSON.stringify(values, null, "  "))
   }
 
@@ -61,20 +69,32 @@ const ExampleComponent = (props) => {
       </div>
       <div className="row">
         <button type="submit">Submit</button>
-        <button id="resetForm" type="button" onClick={() => resetForm("initialValues")}>Reset</button>
-      </div>  
+        <button
+          type="button"
+          onClick={() => setInitialValues("initialValuesWithSet", defaultUser)}
+        >
+          Load user
+        </button>
+        <button id="resetForm" type="button" onClick={() => resetForm("initialValuesWithSet")}>Reset</button>
+      </div>
     </Form>
   )
 }
 
-export default reduxForm({
-  form: 'initialValues',
-  initialValues: {
-    firstName: 'Timofey',
-    lastName: 'Goncharov',
-    email: 'test@mail.ru',
-    notes: undefined,
-  },
+const Example = reduxForm({
+  form: "initialValuesWithSet",
 })(ExampleComponent)
 
-`;
+const InitialValuesWithSet = React.memo(() => {
+
+  return (
+    <TemplateExamplePage
+      title={<FormattedMessage id="examples.titles.initialValues" />}
+      formName="initialValuesWithSet"
+    >
+      <Example />
+    </TemplateExamplePage>
+  )
+})
+
+export default InitialValuesWithSet

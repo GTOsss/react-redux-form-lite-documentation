@@ -14,8 +14,8 @@
       "simpleForm": "Простая форма",
       "syncValidation": "Синхронная валидация формы",
       "fieldLevelValidation": "Валидация на уровне инпутов",
-      "initialValues": "Начальное состояние формы",
-      "initializeFromState": "Установка начального состояния формы",
+      "initialValues": "Значения по умолчанию",
+      "initializeFromState": "Установка значений по умолчанию",
       "fieldArray": "Массив инпутов",
       "wizardForm": "Многостраничная форма"
     }

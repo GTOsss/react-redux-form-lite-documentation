@@ -5,12 +5,14 @@ import simpleForm from "./simple-form"
 import syncValidation from "./sync-validation"
 import fieldLevelValidation from './field-level-validation';
 import initialValues from './initial-values';
+import initialValuesWithSet from './initial-value-with-set';
 
 const mapExamples = {
   simpleForm,
   syncValidation,
   fieldLevelValidation,
   initialValues,
+  initialValuesWithSet,
 }
 
 export type ExampleKey = keyof typeof mapExamples;

@@ -63,7 +63,7 @@ const navElementsMap: NavElementsMap = {
     {
       id: 4,
       label: <FormattedMessage id="innerNavbar.examples.initializeFromState" />,
-      link: "/examples/initialize-from-state",
+      link: "/examples/initial-values-with-set",
     },
     {
       id: 5,

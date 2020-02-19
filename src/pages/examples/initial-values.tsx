@@ -2,13 +2,17 @@ import * as React from "react"
 import TemplateExamplePage from "../../string-examples/template-example-page"
 import Form from "../../components/form"
 import { FormattedMessage } from "gatsby-plugin-intl"
-import { reduxForm, Field } from "react-redux-form-lite"
+import { reduxForm, Field, IReduxFormSubmitEvent } from "react-redux-form-lite"
 
 const ExampleComponent = (props) => {
-  const {handleSubmit, formActions: {resetForm}} = props;
+  const { handleSubmit, formActions: { resetForm } } = props
+
+  const onSubmit = ({ values }: IReduxFormSubmitEvent<any>) => {
+    alert(JSON.stringify(values, null, "  "))
+  }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>First Name</label>
         <div>
@@ -59,18 +63,18 @@ const ExampleComponent = (props) => {
       </div>
       <div className="row">
         <button type="submit">Submit</button>
-        <button id="resetForm" type="submit" onClick={() => resetForm("initialValues")}>Reset</button>
+        <button id="resetForm" type="button" onClick={() => resetForm("initialValues")}>Reset</button>
       </div>
     </Form>
   )
 }
 
 const Example = reduxForm({
-  form: 'initialValues',
+  form: "initialValues",
   initialValues: {
-    firstName: 'Timofey',
-    lastName: 'Goncharov',
-    email: 'test@mail.ru',
+    firstName: "Timofey",
+    lastName: "Goncharov",
+    email: "test@mail.ru",
     notes: undefined,
   },
 })(ExampleComponent)
