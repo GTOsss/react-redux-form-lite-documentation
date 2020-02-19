@@ -58,6 +58,11 @@ const Form = styled.form<IProps>`
     resize: vertical;
   }
   
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
   .direction-column {
     display: flex;
     flex-direction: column;

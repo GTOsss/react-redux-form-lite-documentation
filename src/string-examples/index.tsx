@@ -4,11 +4,13 @@ import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import simpleForm from "./simple-form"
 import syncValidation from "./sync-validation"
 import fieldLevelValidation from './field-level-validation';
+import initialValues from './initial-values';
 
 const mapExamples = {
   simpleForm,
   syncValidation,
   fieldLevelValidation,
+  initialValues,
 }
 
 export type ExampleKey = keyof typeof mapExamples;

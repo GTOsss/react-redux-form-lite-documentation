@@ -1,15 +1,14 @@
-export default `
-import React from 'react';
+import * as React from "react"
+import TemplateExamplePage from "../../string-examples/template-example-page"
+import Form from "../../components/form"
+import { FormattedMessage } from "gatsby-plugin-intl"
 import { reduxForm, Field } from "react-redux-form-lite"
 
-
-const ExampleComponent = ({ handleSubmit }) => {
-  const onSubmit = ({ values }) => {
-    alert(JSON.stringify(values, null, "  "))
-  }
+const ExampleComponent = (props) => {
+  const {handleSubmit, formActions: {resetForm}} = props;
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
         <div>
@@ -58,15 +57,34 @@ const ExampleComponent = ({ handleSubmit }) => {
           <Field name="notes" component="textarea" />
         </div>
       </div>
-      <div>
+      <div className="row">
         <button type="submit">Submit</button>
+        <button id="resetForm" type="submit" onClick={() => resetForm("initialValues")}>Reset</button>
       </div>
     </Form>
   )
 }
 
-export default reduxForm({
-  form: "simpleForm",
-})(SimpleForm)
+const Example = reduxForm({
+  form: 'initialValues',
+  initialValues: {
+    firstName: 'Timofey',
+    lastName: 'Goncharov',
+    email: 'test@mail.ru',
+    notes: undefined,
+  },
+})(ExampleComponent)
 
-`
+const SyncValidation = React.memo(() => {
+
+  return (
+    <TemplateExamplePage
+      title={<FormattedMessage id="examples.titles.initialValues" />}
+      formName="initialValues"
+    >
+      <Example />
+    </TemplateExamplePage>
+  )
+})
+
+export default SyncValidation
