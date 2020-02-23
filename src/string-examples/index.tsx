@@ -7,6 +7,7 @@ import fieldLevelValidation from "./field-level-validation"
 import initialValues from "./initial-values"
 import initialValuesWithSet from "./initial-value-with-set"
 import fieldArray from "./field-array"
+import wizardForm from './wizard-form';
 
 const mapExamples = {
   simpleForm,
@@ -15,6 +16,7 @@ const mapExamples = {
   initialValues,
   initialValuesWithSet,
   fieldArray,
+  wizardForm,
 }
 
 export type ExampleKey = keyof typeof mapExamples;

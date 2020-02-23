@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled from "styled-components"
-import { reduxForm, Field, IReduxFormSubmitEvent, IReduxFormState } from "react-redux-form-lite"
+import { IReduxFormState } from "react-redux-form-lite"
 import { useSelector } from "react-redux"
 import Layout from "../components/layout"
 import BodyExample from "../components/body-example"
@@ -15,12 +15,14 @@ interface IProps {
   children: React.ReactNode;
   title: React.ReactNode;
   formName: ExampleKey;
+  wizard: boolean;
 }
 
 const TemplateExamplePage = ({
   children,
   title,
   formName,
+  wizard = false,
 }: IProps) => {
 
   // @ts-ignore
@@ -33,7 +35,7 @@ const TemplateExamplePage = ({
           <h1>{title}</h1>
           {children}
         </LeftWrap>
-        <JsonExample formName={formName} formState={formState} />
+        <JsonExample wizard={wizard} formName={formName} formState={formState} />
       </BodyExample>
       <ExampleByKey exampleKey={formName} />
     </Layout>

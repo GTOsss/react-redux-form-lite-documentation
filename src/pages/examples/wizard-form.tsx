@@ -1,6 +1,8 @@
-export default `
-import React from "react"
-import { reduxForm, Field, FieldArray } from "react-redux-form-lite"
+import * as React from "react"
+import { reduxForm, Field } from "react-redux-form-lite"
+import { FormattedMessage } from "gatsby-plugin-intl"
+import Form from "../../components/form"
+import TemplateExamplePage from "../../string-examples/template-example-page"
 import cn from "classnames"
 
 const validationIsRequired = (value) => !value ? "Field required." : undefined
@@ -45,7 +47,7 @@ const Step1Component = (props) => {
   const { handleSubmit } = props
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field
         validate={validationIsRequired}
         name="firstName"
@@ -65,7 +67,7 @@ const Step1Component = (props) => {
         <button type="button">Previous</button>
         <button type="submit">Next</button>
       </div>
-    </form>
+    </Form>
   )
 }
 
@@ -82,7 +84,7 @@ const Step2Component = (props) => {
   const { handleSubmit, prevPage } = props
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field
         validate={validationIsRequired}
         name="phone"
@@ -102,7 +104,7 @@ const Step2Component = (props) => {
         <button type="button" onClick={prevPage}>Previous</button>
         <button type="submit">Next</button>
       </div>
-    </form>
+    </Form>
   )
 }
 
@@ -119,7 +121,7 @@ const Step3Component = (props) => {
   const { handleSubmit, prevPage } = props
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field
         validate={validationIsRequired}
         name="dob"
@@ -139,7 +141,7 @@ const Step3Component = (props) => {
         <button type="button" onClick={prevPage}>Previous</button>
         <button type="submit">Submit</button>
       </div>
-    </form>
+    </Form>
   )
 }
 
@@ -185,4 +187,17 @@ const WizardFieldLevelValidation = () => {
   )
 }
 
-`
+const Wizard = React.memo(() => {
+
+  return (
+    <TemplateExamplePage
+      title={<FormattedMessage id="examples.titles.wizardForm" />}
+      formName="wizardForm"
+      wizard
+    >
+      <WizardFieldLevelValidation />
+    </TemplateExamplePage>
+  )
+})
+
+export default Wizard
