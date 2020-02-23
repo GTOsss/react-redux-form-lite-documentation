@@ -92,6 +92,46 @@ const Form = styled.form<IProps>`
   .input-warning {
     border: solid 1px #9f9f00;
   }
+  
+  .authors, .books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        position: relative;
+        padding-top: 25px;
+      }
+    }
+  }
+  
+  .author, .book {
+    padding: 10px;
+    border: dashed 2px black;
+    margin-bottom: 16px;
+    background-color: white;
+  }
+  
+  .book {
+    padding: 10px;
+    background-color: #f6eedb;
+    border: dashed 1px black;
+  }
+  
+  .books {
+    
+  }
+  
+  .close-button {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+  }
 `
 
 export default Form

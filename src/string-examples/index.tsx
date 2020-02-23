@@ -1,11 +1,12 @@
 import * as React from "react"
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism"
 import simpleForm from "./simple-form"
 import syncValidation from "./sync-validation"
-import fieldLevelValidation from './field-level-validation';
-import initialValues from './initial-values';
-import initialValuesWithSet from './initial-value-with-set';
+import fieldLevelValidation from "./field-level-validation"
+import initialValues from "./initial-values"
+import initialValuesWithSet from "./initial-value-with-set"
+import fieldArray from "./field-array"
 
 const mapExamples = {
   simpleForm,
@@ -13,6 +14,7 @@ const mapExamples = {
   fieldLevelValidation,
   initialValues,
   initialValuesWithSet,
+  fieldArray,
 }
 
 export type ExampleKey = keyof typeof mapExamples;

@@ -32,7 +32,7 @@ const Main = styled.main`
   padding: 10px 30px;
 `
 
-type NavElementsKey = "examples" | "api";
+type NavElementsKey = "examples";
 
 type NavElementsMap = {
   [key in NavElementsKey]: Array<NavElement>;
@@ -76,13 +76,13 @@ const navElementsMap: NavElementsMap = {
       link: "/examples/wizard-form",
     },
   ],
-  api: [
-    {
-      id: 0,
-      label: "reduxForm",
-      link: "",
-    },
-  ],
+  // api: [
+  //   {
+  //     id: 0,
+  //     label: "reduxForm",
+  //     link: "",
+  //   },
+  // ],
 }
 
 interface IProps {

@@ -10,6 +10,7 @@ const HeaderWrap = styled.header`
   padding: 0 20px;
   position: sticky;
   top: 0;
+  z-index: 100;
 `;
 
 const Logo = styled(Link)`
@@ -51,9 +52,9 @@ const Header = ({ siteTitle }: IProps) => (
       <Logo to="/">
         {siteTitle}
       </Logo>
-      <NavItem to="/api">
-        <FormattedMessage id="global.navItemApi" />
-      </NavItem>
+      {/*<NavItem to="/api">*/}
+      {/*  <FormattedMessage id="global.navItemApi" />*/}
+      {/*</NavItem>*/}
       <NavItem to="/examples/simple-form">
         <FormattedMessage id="global.navItemExamples" />
       </NavItem>

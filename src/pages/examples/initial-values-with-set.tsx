@@ -89,7 +89,7 @@ const InitialValuesWithSet = React.memo(() => {
 
   return (
     <TemplateExamplePage
-      title={<FormattedMessage id="examples.titles.initialValues" />}
+      title={<FormattedMessage id="examples.titles.initializeFromState" />}
       formName="initialValuesWithSet"
     >
       <Example />

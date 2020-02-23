@@ -1,10 +1,12 @@
 import * as React from "react"
-import { reduxForm, Field, IReduxFormSubmitEvent, IReduxFormState } from "react-redux-form-lite"
-import { FormattedMessage } from 'gatsby-plugin-intl';
+import { reduxForm, Field, IReduxFormSubmitEvent, IPropsConnectedForm } from "react-redux-form-lite"
+import { FormattedMessage } from "gatsby-plugin-intl"
 import Form from "../../components/form"
 import TemplateExamplePage from "../../string-examples/template-example-page"
 
-const ExampleComponent = ({ handleSubmit }) => {
+const ExampleComponent = (props) => {
+  const { handleSubmit } = props as IPropsConnectedForm
+
   const onSubmit = ({ values }: IReduxFormSubmitEvent<any>) => {
     alert(JSON.stringify(values, null, "  "))
   }
@@ -82,8 +84,8 @@ const SimpleForm = React.memo(({}: IProps) => {
     >
       <Example />
     </TemplateExamplePage>
-  );
-});
+  )
+})
 
-export default SimpleForm;
+export default SimpleForm
 
