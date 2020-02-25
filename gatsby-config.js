@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `React Redux Form Lite`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Легковесная и не менее функциональная альтернатива redux-form`,
+    author: `@gtosss`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
