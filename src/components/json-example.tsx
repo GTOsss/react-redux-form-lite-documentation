@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled from "styled-components"
-import { IReduxFormState } from "react-redux-form-lite"
+import { IReduxFormState, IReduxFormWizard } from "react-redux-form-lite"
 
 const Wrap = styled.div`
   font-size: 12px;
@@ -36,7 +36,7 @@ const ObjectElement = styled.div<IObjectElement>`
 
 interface IProps {
   formName: string;
-  formState: IReduxFormState<any> | IReduxFormWizard<any>;
+  formState: IReduxFormState<any> | IReduxFormWizard<any> | {};
   wizard: boolean;
 }
 
@@ -50,25 +50,28 @@ const JsonExample = React.memo(({
     return null
   }
 
+  const formStateWithWizard = formState as IReduxFormWizard<any>;
+  const formStateWithForm = formState as IReduxFormState<any>;
+
   return (
     <Wrap>
       <Title>Values (state.reduxForm.{formName}.values):</Title>
       <ObjectElement>
-        {JSON.stringify(formState.values, null, "  ")}
+        {JSON.stringify(formStateWithForm.values, null, "  ")}
       </ObjectElement>
       {
         wizard ? (
           <>
             <Title>Form (state.reduxForm.{formName}.wizard):</Title>
             <ObjectElement>
-              {JSON.stringify(formState.wizard, null, "  ")}
+              {JSON.stringify(formStateWithWizard.wizard, null, "  ")}
             </ObjectElement>
           </>
         ) : (
           <>
             <Title>Form (state.reduxForm.{formName}.form):</Title>
             <ObjectElement>
-              {JSON.stringify(formState.form, null, "  ")}
+              {JSON.stringify(formStateWithForm.form, null, "  ")}
             </ObjectElement>
           </>
         )}
@@ -77,7 +80,7 @@ const JsonExample = React.memo(({
           <>
             <Title>Meta (state.reduxForm.{formName}.meta):</Title>
             <ObjectElement maxHeight="300px">
-              {JSON.stringify(formState.meta, null, "  ")}
+              {JSON.stringify(formStateWithForm.meta, null, "  ")}
             </ObjectElement>
           </>
         )

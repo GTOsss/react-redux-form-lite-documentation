@@ -5,3 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+
+import Provider from './src/state/provider';
+
+export const wrapPageElement = Provider;
