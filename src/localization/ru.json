@@ -17,7 +17,8 @@
       "initialValues": "Значения по умолчанию",
       "initializeFromState": "Установка значений по умолчанию",
       "fieldArray": "Массив инпутов",
-      "wizardForm": "Многостраничная форма"
+      "wizardForm": "Многостраничная форма",
+      "formSection": "Раздел формы"
     }
   },
   "examples": {
@@ -28,7 +29,8 @@
       "initialValues": "Значения по умолчанию",
       "initializeFromState": "Установка значений по умолчанию",
       "fieldArray": "Массив инпутов",
-      "wizardForm": "Многостраничная форма"
+      "wizardForm": "Многостраничная форма",
+      "formSection": "Раздел формы"
     }
   }
 }

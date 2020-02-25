@@ -1,11 +1,11 @@
 import * as React from "react"
-import { reduxForm, Field, IReduxFormSubmitEvent, IPropsConnectedForm } from "react-redux-form-lite"
+import { reduxForm, Field, IReduxFormSubmitEvent, IPropsInjectedForm } from "react-redux-form-lite"
 import { FormattedMessage } from "gatsby-plugin-intl"
 import Form from "../../components/form"
 import TemplateExamplePage from "../../string-examples/template-example-page"
 
 const ExampleComponent = (props) => {
-  const { handleSubmit } = props as IPropsConnectedForm
+  const { handleSubmit } = props as IPropsInjectedForm
 
   const onSubmit = ({ values }: IReduxFormSubmitEvent<any>) => {
     alert(JSON.stringify(values, null, "  "))
@@ -31,13 +31,13 @@ const ExampleComponent = (props) => {
           <Field name="email" component="input" type="email" placeholder="Email" />
         </div>
       </div>
-      <div>
-        <label>Sex</label>
-        <div>
-          <label><Field name="sex" component="input" type="radio" value="male" /> Male</label>
-          <label><Field name="sex" component="input" type="radio" value="female" /> Female</label>
-        </div>
-      </div>
+      {/*<div>*/}
+      {/*  <label>Sex</label>*/}
+      {/*  <div>*/}
+      {/*    <label><Field name="sex" component="input" type="radio" value="male" /> Male</label>*/}
+      {/*    <label><Field name="sex" component="input" type="radio" value="female" /> Female</label>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       <div>
         <label>Favorite Color</label>
         <div>

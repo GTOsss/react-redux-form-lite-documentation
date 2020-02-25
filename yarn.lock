@@ -10234,10 +10234,10 @@ react-reconciler@^0.24.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-redux-form-lite@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/react-redux-form-lite/-/react-redux-form-lite-0.0.19.tgz#a560054f5c87d77bcd3b40a345534c5957c63d00"
-  integrity sha512-d2gl7XHTBIwVtKVG71CV2LMxK9dIusLFpQFgta1SfaKoEJwIq+s4Ne10PWlsLAFPFLzYWELjMUSXn7Tmt3lpZw==
+react-redux-form-lite@^0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/react-redux-form-lite/-/react-redux-form-lite-0.0.20.tgz#1fa7f795da3c574de0749aefe91ffa48685a679d"
+  integrity sha512-3UXbNr4ZytiwZwWdKHznR8vdhpXqRG4MoAZH5aq3I1+rFtbAbeWTfNaKAOCI1EzpA3PVlb/QW26nBhS379NoXw==
   dependencies:
     lodash.omit "^4.5.0"
     lodash.topath "^4.5.2"

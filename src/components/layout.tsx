@@ -75,6 +75,11 @@ const navElementsMap: NavElementsMap = {
       label: <FormattedMessage id="innerNavbar.examples.wizardForm" />,
       link: "/examples/wizard-form",
     },
+    {
+      id: 7,
+      label: <FormattedMessage id="innerNavbar.examples.formSection" />,
+      link: "/examples/form-section",
+    },
   ],
   // api: [
   //   {

@@ -15,7 +15,7 @@ interface IProps {
   children: React.ReactNode;
   title: React.ReactNode;
   formName: ExampleKey;
-  wizard: boolean;
+  wizard?: boolean;
 }
 
 const TemplateExamplePage = ({

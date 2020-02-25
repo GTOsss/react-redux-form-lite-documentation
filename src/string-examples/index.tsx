@@ -8,6 +8,7 @@ import initialValues from "./initial-values"
 import initialValuesWithSet from "./initial-value-with-set"
 import fieldArray from "./field-array"
 import wizardForm from './wizard-form';
+import formSection from './form-section';
 
 const mapExamples = {
   simpleForm,
@@ -17,6 +18,7 @@ const mapExamples = {
   initialValuesWithSet,
   fieldArray,
   wizardForm,
+  formSection,
 }
 
 export type ExampleKey = keyof typeof mapExamples;

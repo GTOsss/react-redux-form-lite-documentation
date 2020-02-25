@@ -29,13 +29,6 @@ const ExampleComponent = ({ handleSubmit }) => {
         </div>
       </div>
       <div>
-        <label>Sex</label>
-        <div>
-          <label><Field name="sex" component="input" type="radio" value="male" /> Male</label>
-          <label><Field name="sex" component="input" type="radio" value="female" /> Female</label>
-        </div>
-      </div>
-      <div>
         <label>Favorite Color</label>
         <div>
           <Field name="favoriteColor" component="select">
